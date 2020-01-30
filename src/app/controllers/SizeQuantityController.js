@@ -24,6 +24,25 @@ module.exports ={
         });
 
         return res.json(variety);
+    },
+
+    async update(req,res){
+        const {size_id} = req.params;
+        const {size,quantity} = req.body;
+
+        await SizeQuantity.update({
+            size,
+            quantity,
+        },{
+            where:{
+                id:size_id
+            }
+        });
+
+        const sizeQuantity = await SizeQuantity.findByPk(size_id);
+        
+        return res.json(sizeQuantity);
     }
+
 
 };

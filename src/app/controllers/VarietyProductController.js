@@ -26,6 +26,26 @@ module.exports ={
         });
 
         return res.json(variety);
+    },
+
+    async update(req,res){
+        const {variety_id} = req.params;
+        const {code,print, print_color, price} = req.body;
+
+        await VarietyProduct.update({
+            code,
+            print,
+            print_color,
+            price,
+        },{
+            where:{
+                id:variety_id
+            }
+        });
+
+        const variety = await VarietyProduct.findByPk(variety_id);
+        
+        return res.json(variety);
     }
 
 };
