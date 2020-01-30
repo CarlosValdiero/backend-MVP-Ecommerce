@@ -9,13 +9,12 @@ module.exports = {
         autoIncrement:true,
         allowNull:false,
       },
-      size:{
-        type:Sequelize.STRING,
+
+      code:{
+        type:Sequelize.INTEGER,
         allowNull:false,
-        validate:{
-          isIn: [['PP', 'P','M','G','GG','GGG']], 
-        }
       },
+      
       print:{
         type:Sequelize.STRING,
         allowNull:false,
@@ -24,9 +23,14 @@ module.exports = {
         type:Sequelize.STRING,
         allowNull:true,
       },
+      
       price:{
         type:Sequelize.DECIMAL(8, 2),
         allowNull:true,
+      },
+      available:{
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
       },
       product_id: {
         type: Sequelize.INTEGER,
