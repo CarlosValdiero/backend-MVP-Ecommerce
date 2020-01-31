@@ -5,5 +5,9 @@ module.exports =(sequelize, DataType)=>{
         description: DataType.STRING,
     });
 
+    Product.associate = models => {
+        Product.hasMany(models.VarietyProduct);
+    };
+
     return Product;
 };

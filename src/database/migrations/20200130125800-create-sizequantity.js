@@ -21,7 +21,7 @@ module.exports = {
             isIn: [['PP', 'P','M','G','GG','GGG']], 
           }
         },
-        variety_id: {
+        variety_product_id: {
           type: Sequelize.INTEGER,
           allowNull:true,
           references: {

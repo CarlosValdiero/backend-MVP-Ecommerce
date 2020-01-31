@@ -1,4 +1,4 @@
-const {VarietyProduct} = require('../models');
+const {Product,VarietyProduct} = require('../models');
 
 module.exports ={
 
@@ -6,6 +6,10 @@ module.exports ={
         const {product_id} = req.params;
 
         var variety = await VarietyProduct.findAll({
+            include:[{
+                model:Product,
+                
+            }],
             where:{
                 product_id
             }

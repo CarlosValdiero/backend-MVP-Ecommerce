@@ -105,7 +105,6 @@ describe('Routes', () => {
         .expect('Content-Type', /json/)
         .expect(200);
 
-        expect(res.body[0].id).toBe(1);
     });
 
     it('update size_quantity', async ()=>{

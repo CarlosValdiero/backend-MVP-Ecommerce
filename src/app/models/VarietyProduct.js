@@ -1,6 +1,6 @@
 module.exports =(sequelize, DataType)=>{
 
-    const Product = sequelize.define("VarietyProduct",{
+    const VarietyProduct = sequelize.define("VarietyProduct",{
         code: DataType.INTEGER,
         print: DataType.STRING,
         print_color: DataType.STRING,
@@ -9,5 +9,10 @@ module.exports =(sequelize, DataType)=>{
         product_id:DataType.INTEGER,
     });
 
-    return Product;
+    VarietyProduct.associate = models => {
+        VarietyProduct.belongsTo(models.Product);
+        VarietyProduct.hasMany(models.SizeQuantity);
+    };
+
+    return VarietyProduct;
 };

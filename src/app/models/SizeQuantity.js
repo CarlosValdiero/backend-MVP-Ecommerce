@@ -1,9 +1,13 @@
 module.exports = (sequelize, DataType) => {
-    const Product = sequelize.define("SizeQuantity",{
+    const SizeQuantity = sequelize.define("SizeQuantity",{
       size: DataType.STRING,
       quantity: DataType.INTEGER,
-      variety_id: DataType.INTEGER,
+      variety_product_id: DataType.INTEGER,
     });
 
-    return Product;
+    SizeQuantity.associate = models => {
+      SizeQuantity.belongsTo(models.VarietyProduct);
+  };
+
+    return SizeQuantity;
 };
