@@ -20,12 +20,14 @@ module.exports ={
 
     async store(req,res){
         const {code,print, print_color, price} = req.body;
+        const {filename} = req.file;
         const {product_id} = req.params;
         const variety = await VarietyProduct.create({
             code,
             print,
             print_color,
             price,
+            photo:filename,
             product_id
         });
 

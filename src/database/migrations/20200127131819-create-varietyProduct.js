@@ -19,6 +19,10 @@ module.exports = {
         type:Sequelize.STRING,
         allowNull:false,
       },
+      photo:{
+        type:Sequelize.STRING,
+        allowNull:false,
+      },
       print_color:{
         type:Sequelize.STRING,
         allowNull:true,

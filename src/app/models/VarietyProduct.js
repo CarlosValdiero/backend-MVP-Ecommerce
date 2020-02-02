@@ -1,6 +1,7 @@
 module.exports =(sequelize, DataType)=>{
 
     const VarietyProduct = sequelize.define("VarietyProduct",{
+        photo:DataType.STRING,
         code: DataType.INTEGER,
         print: DataType.STRING,
         print_color: DataType.STRING,
