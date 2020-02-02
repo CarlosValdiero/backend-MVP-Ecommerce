@@ -8,6 +8,12 @@ module.exports =(sequelize, DataType)=>{
         price: DataType.DECIMAL(8, 2),
         available:DataType.BOOLEAN,
         product_id:DataType.INTEGER,
+        photo_url: {
+            type: DataType.VIRTUAL,
+            get () {
+              return 'http://localhost:3333/files/'+ this.getDataValue('photo') 
+            }
+          }
     });
 
     VarietyProduct.associate = models => {
