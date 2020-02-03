@@ -1,4 +1,4 @@
-const {Product,VarietyProduct} = require('../models');
+const {Color,Product,VarietyProduct} = require('../models');
 
 module.exports ={
 
@@ -6,7 +6,11 @@ module.exports ={
 
         var variety = await VarietyProduct.findAll({
             include:[{
+                attributes: ['name','description'],
                 model:Product                
+            },{
+                attributes: ['name','cod'],
+                model:Color
             }]
         });
 

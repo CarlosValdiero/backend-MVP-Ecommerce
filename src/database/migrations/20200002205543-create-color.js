@@ -2,12 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-        Example:
-      return queryInterface.createTable('users', { id: Sequelize.INTEGER });
-    */
-
-    return queryInterface.createTable('products',{
+    return queryInterface.createTable('colors',{
       id:{
         type:Sequelize.INTEGER,
         primaryKey:true,
@@ -19,17 +14,9 @@ module.exports = {
         allowNull:false,
         unique:true,
       },
-      description:{
+      cod:{
         type:Sequelize.STRING,
         allowNull:false,
-      },
-      type_id: {
-        type: Sequelize.INTEGER,
-        allowNull:true,
-        references: {
-          model: 'types',
-          key: 'id'
-        }
       },
       created_at:{
         type:Sequelize.DATE,
@@ -44,10 +31,8 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Example:
-      return queryInterface.dropTable('users');
-    */
-    return queryInterface.dropTable('products');
+    
+      return queryInterface.dropTable('colors');
+    
   }
 };

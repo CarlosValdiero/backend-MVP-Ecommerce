@@ -1,4 +1,4 @@
-const {Product, VarietyProduct} = require('../models');
+const {Product} = require('../models');
 
 module.exports ={
     
@@ -17,10 +17,11 @@ module.exports ={
     },
 
     async store(req,res){
-        const {name,description} = req.body;
+        const {name,description,type_id} = req.body;
         const product = await Product.create({
             name,
-            description
+            description,
+            type_id
         });
 
         return res.json(product);
@@ -28,11 +29,12 @@ module.exports ={
 
     async update(req,res){
         const {product_id} = req.params;
-        const {name,description} = req.body;
+        const {name,description,type_id} = req.body;
 
         await Product.update({
             name,
-            description
+            description,
+            type_id
         },{
             where:{
                 id:product_id

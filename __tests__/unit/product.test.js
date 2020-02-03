@@ -1,18 +1,79 @@
 const Op = require('sequelize').Op;
-const {Product, VarietyProduct, SizeQuantity} = require('../../src/app/models');
+const {Type,Color,Product, VarietyProduct, SizeQuantity} = require('../../src/app/models');
+
+
+describe('Type', () => {
+    it('Create one type', async ()=>{
+        await Type.create({
+            name:'pan',
+        });
+
+        const type = await Type.findAll({
+            where:{
+                name:'pan'
+            }
+        });
+        expect(type[0].name).toBe('pan');
+    });
+
+    it('Update one Type', async ()=>{
+        await Type.update({ name: "shorts" }, {
+            where: {
+              id: 1
+            }
+        });
+
+        const updateType = await Type.findByPk(1);
+
+        expect(updateType.name).toBe('shorts');
+
+    });
+    
+});
+
+describe('Color', () => {
+    it('Create one Color', async ()=>{
+        await Color.create({
+            name:'red',
+            cod:'#FF0000'
+        });
+
+        const color = await Color.findAll({
+            where:{
+                name:'red'
+            }
+        });
+        expect(color[0].cod).toBe('#FF0000');
+    });
+
+    it('Update one Product', async ()=>{
+        await Color.update({ name: "green",cod:'#00FF00' }, {
+            where: {
+              id: 1
+            }
+        });
+
+        const updateColor = await Color.findByPk(1);
+
+        expect(updateColor.name).toBe('green');
+
+    });
+    
+});
 
 describe('Product', () => {
     it('Create one product', async ()=>{
         await Product.create({
             name:'productName',
-            description:'textDescription'
+            description:'textDescription',
+            type_id:1,
         });
         const product = await Product.findAll({
             where:{
                 name:'productName'
             }
         });
-        expect(product[0].name).toContain('Name');
+        expect(product[0].type_id).toBe(1);
     });
 
     it('Update one Product', async ()=>{
@@ -30,22 +91,20 @@ describe('Product', () => {
     
     it('Create two product variety', async ()=>{
 
-        const product = await Product.findAll();
-
 
         await VarietyProduct.create({
+            photo:'photo.png',
             code:4322132,
-            print:'pink',
-            print_color:'#926',
             price:19.90,
-            product_id: product[0].id,
+            product_id: 1,
+            color_id:1,
         });
         await VarietyProduct.create({
+            photo:"photo2.png",
             code:4234234,
-            print:'blue',
-            print_color:'#148',
             price:29.90,
-            product_id: product[0].id,
+            product_id: 1,
+            color_id:1,
         });
 
         const varietyProducts = await VarietyProduct.findAll({

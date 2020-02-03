@@ -15,17 +15,9 @@ module.exports = {
         allowNull:false,
       },
       
-      print:{
-        type:Sequelize.STRING,
-        allowNull:false,
-      },
       photo:{
         type:Sequelize.STRING,
         allowNull:false,
-      },
-      print_color:{
-        type:Sequelize.STRING,
-        allowNull:true,
       },
       
       price:{
@@ -41,6 +33,14 @@ module.exports = {
         allowNull:true,
         references: {
           model: 'products',
+          key: 'id'
+        }
+      },
+      color_id: {
+        type: Sequelize.INTEGER,
+        allowNull:true,
+        references: {
+          model: 'colors',
           key: 'id'
         }
       },

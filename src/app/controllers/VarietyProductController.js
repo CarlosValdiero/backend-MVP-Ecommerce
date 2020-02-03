@@ -1,4 +1,4 @@
-const {Product,VarietyProduct} = require('../models');
+const {Color,Product,VarietyProduct} = require('../models');
 
 module.exports ={
 
@@ -7,8 +7,11 @@ module.exports ={
 
         var variety = await VarietyProduct.findAll({
             include:[{
-                model:Product,
-                
+                attributes: ['name','description'],
+                model:Product                
+            },{
+                attributes: ['name','cod'],
+                model:Color
             }],
             where:{
                 product_id
@@ -19,29 +22,27 @@ module.exports ={
     },
 
     async store(req,res){
-        const {code,print, print_color, price} = req.body;
+        const {code,color_id, price} = req.body;
         const {filename} = req.file;
         const {product_id} = req.params;
         const variety = await VarietyProduct.create({
             code,
-            print,
-            print_color,
             price,
             photo:filename,
-            product_id
+            product_id,
+            color_id,
         });
 
         return res.json(variety);
     },
 
     async update(req,res){
-        const {variety_id} = req.params;
-        const {code,print, print_color, price} = req.body;
+        const {variety_id,product_id} = req.params;
+        const {code,color_id, price} = req.body;
 
         await VarietyProduct.update({
             code,
-            print,
-            print_color,
+            color_id,
             price,
         },{
             where:{
