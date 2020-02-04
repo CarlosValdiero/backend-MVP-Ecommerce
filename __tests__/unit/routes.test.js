@@ -88,6 +88,14 @@ describe('Routes', () => {
         expect(res.body.description).toBe('otima qualidade');
     });
 
+    it('Search one product', async ()=>{
+        const res =await request(app)
+        .get('/product/1')
+        .expect(200);
+
+        expect(res.body.id).toBe(1);
+    });
+
     it('find products', async ()=>{
         const res =await request(app)
         .get('/products')
@@ -127,6 +135,14 @@ describe('Routes', () => {
         expect(res.body.code).toBe('97653503');
     });
 
+    it('create one variet_product', async ()=>{
+        const res =await request(app)
+        .get('/product/variety/1')
+        .expect(200);
+
+        expect(res.body.id).toBe(1);
+    });
+
     it('find variet_products', async ()=>{
         const res =await request(app)
         .get('/product/1/varieties')
@@ -136,20 +152,11 @@ describe('Routes', () => {
         expect(res.body[0].product_id).toBe(1);
     });
 
-    it('find all variet_products', async ()=>{
-        const res =await request(app)
-        .get('/products/varieties')
-        .expect('Content-Type', /json/)
-        .expect(200);
-
-        expect(res.body[0].id).toBe(1);
-    });
-
 
     it('update variet_products', async ()=>{
 
         const res =await request(app)
-        .put('/product/1/variety/1')
+        .put('/product/variety/1')
         .send({
             code:97653503,
             price:45.50,
@@ -187,7 +194,7 @@ describe('Routes', () => {
     it('update size_quantity', async ()=>{
 
         const res =await request(app)
-        .put('/product/variety/1/size/1')
+        .put('/product/variety/size/1')
         .send({
             size:'P',
 	        quantity:15
@@ -200,5 +207,48 @@ describe('Routes', () => {
         expect(res.body.quantity).toBe(15);
     });
 
+    it('create one size_quantity 2', async ()=>{
+        const res =await request(app)
+        .post('/product/variety/1/size')
+        .send({ 
+            size:'M',
+	        quantity:10
+        })
+        .expect(200);
+
+        expect(res.body.size).toBe('M');
+        expect(res.body.quantity).toBe(10);
+    });
+
+
+    it('find all variet_products', async ()=>{
+        const res = await request(app)
+        .get('/products/varieties')
+        .query({ 
+            colors: '',
+            types: '',
+            prices:'1,500',
+            sizes:'' 
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+        console.log(res.body);
+        expect(res.body[0].id).toBe(1);
+    });
+
+    it('find all variet_products that have size M', async ()=>{
+        const res = await request(app)
+        .get('/products/varieties')
+        .query({ 
+            colors: '',
+            types: '',
+            prices:'1,500',
+            sizes:'M'
+        })
+        .expect('Content-Type', /json/)
+        .expect(200);
+        console.log(res.body);
+        expect(res.body[0].SizeQuantities[0].size).toBe('M');
+    });
 
 });

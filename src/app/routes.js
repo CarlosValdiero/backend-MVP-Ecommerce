@@ -22,17 +22,19 @@ routes.delete('/color/:color_id', ColorController.delete);
 
 routes.post('/product', ProductController.store);
 routes.get('/products', ProductController.index);
+routes.get('/product/:product_id', ProductController.show);
 routes.put('/product/:product_id', ProductController.update);
 
 routes.post('/product/:product_id/variety', upload.single('photo'),VarietyProductController.store);
 routes.get('/product/:product_id/varieties', VarietyProductController.index);
-routes.put('/product/:product_id/variety/:variety_id', VarietyProductController.update);
+routes.get('/product/variety/:variety_id', VarietyProductController.show);
+routes.put('/product/variety/:variety_id', VarietyProductController.update);
 
 routes.get('/products/varieties', AllVarietyController.index);
 
 routes.post('/product/variety/:variety_product_id/size', SizeQuantityController.store);
 routes.get('/product/variety/:variety_product_id/sizes', SizeQuantityController.index);
-routes.put('/product/variety/:variety_product_id/size/:size_id', SizeQuantityController.update);
+routes.put('/product/variety/size/:size_id', SizeQuantityController.update);
 
 
 module.exports = routes;

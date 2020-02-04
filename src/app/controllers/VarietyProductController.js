@@ -1,4 +1,4 @@
-const {Color,Product,VarietyProduct} = require('../models');
+const {Color,Product,VarietyProduct,SizeQuantity} = require('../models');
 
 module.exports ={
 
@@ -19,6 +19,24 @@ module.exports ={
         });
 
         return res.json(variety);
+    },
+
+    async show(req,res){
+        const {variety_id} = req.params;
+        const variety = await VarietyProduct.findByPk(variety_id,{
+            include:[{
+                attributes: ['name','description'],
+                model:Product                
+            },{
+                attributes: ['id','size','quantity'],
+                model:SizeQuantity,
+            },{
+                attributes: ['name','cod'],
+                model:Color
+            }]
+        });
+
+        return  res.json(variety);
     },
 
     async store(req,res){

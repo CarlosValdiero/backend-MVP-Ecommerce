@@ -1,4 +1,4 @@
-const {Product} = require('../models');
+const {Product,VarietyProduct} = require('../models');
 
 module.exports ={
     
@@ -11,7 +11,11 @@ module.exports ={
 
     async show(req,res){
         const {product_id} = req.params;
-        const product = await Product.findByPk(product_id);
+        const product = await Product.findByPk(product_id,{
+            include:[{
+                model:VarietyProduct,
+            }]
+        });
 
         return  res.json(product);
     },
