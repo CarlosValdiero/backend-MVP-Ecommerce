@@ -10,7 +10,7 @@ module.exports =(sequelize, DataType)=>{
         photo_url: {
             type: DataType.VIRTUAL,
             get () {
-              return 'http://localhost:3333/files/'+ this.getDataValue('photo') 
+              return 'http://192.168.1.123:3333/files/'+ this.getDataValue('photo') 
             }
           }
     });

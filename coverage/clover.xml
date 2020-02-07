@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1580779935254" clover="3.2.0">
-  <project timestamp="1580779935254" name="All files">
-    <metrics statements="173" coveredstatements="173" conditionals="19" coveredconditionals="12" methods="33" coveredmethods="33" elements="225" coveredelements="218" complexity="0" loc="173" ncloc="173" packages="4" files="16" classes="16"/>
+<coverage generated="1581034632491" clover="3.2.0">
+  <project timestamp="1581034632491" name="All files">
+    <metrics statements="181" coveredstatements="181" conditionals="19" coveredconditionals="12" methods="35" coveredmethods="35" elements="235" coveredelements="228" complexity="0" loc="181" ncloc="181" packages="4" files="17" classes="17"/>
     <package name="app">
-      <metrics statements="41" coveredstatements="41" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+      <metrics statements="43" coveredstatements="43" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
       <file name="app.js" path="/home/carlos/Documentos/projetoMae/backend/src/app/app.js">
         <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -19,7 +19,7 @@
         <line num="16" count="1" type="stmt"/>
       </file>
       <file name="routes.js" path="/home/carlos/Documentos/projetoMae/backend/src/app/routes.js">
-        <metrics statements="30" coveredstatements="30" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <metrics statements="32" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -31,29 +31,31 @@
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
         <line num="17" count="1" type="stmt"/>
-        <line num="19" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
         <line num="21" count="1" type="stmt"/>
-        <line num="23" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
         <line num="24" count="1" type="stmt"/>
         <line num="25" count="1" type="stmt"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="28" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
         <line num="33" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
         <line num="36" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
         <line num="40" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
     </package>
     <package name="app.controllers">
-      <metrics statements="78" coveredstatements="78" conditionals="8" coveredconditionals="5" methods="18" coveredmethods="18"/>
+      <metrics statements="84" coveredstatements="84" conditionals="8" coveredconditionals="5" methods="20" coveredmethods="20"/>
       <file name="AllVarietyController.js" path="/home/carlos/Documentos/projetoMae/backend/src/app/controllers/AllVarietyController.js">
         <metrics statements="11" coveredstatements="11" conditionals="8" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
@@ -81,6 +83,15 @@
         <line num="25" count="1" type="stmt"/>
         <line num="31" count="1" type="stmt"/>
       </file>
+      <file name="ColorsProductController.js" path="/home/carlos/Documentos/projetoMae/backend/src/app/controllers/ColorsProductController.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
       <file name="ProductController.js" path="/home/carlos/Documentos/projetoMae/backend/src/app/controllers/ProductController.js">
         <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
@@ -105,16 +116,16 @@
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
-        <line num="22" count="2" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="30" count="2" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="35" count="1" type="stmt"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="46" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
       </file>
       <file name="TypeController.js" path="/home/carlos/Documentos/projetoMae/backend/src/app/controllers/TypeController.js">
         <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
@@ -190,7 +201,7 @@
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
         <line num="1" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
-        <line num="13" count="13" type="stmt"/>
+        <line num="13" count="12" type="stmt"/>
         <line num="18" count="2" type="stmt"/>
         <line num="19" count="2" type="stmt"/>
         <line num="20" count="2" type="stmt"/>

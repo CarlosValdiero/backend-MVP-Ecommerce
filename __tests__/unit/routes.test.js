@@ -251,4 +251,15 @@ describe('Routes', () => {
         expect(res.body[0].SizeQuantities[0].size).toBe('M');
     });
 
+    it('find all colors of a product ', async ()=>{
+        const res = await request(app)
+        .get('/product/colors/1')
+        .expect('Content-Type', /json/)
+        .expect(200);
+        
+        expect(res.body[0].cod).toEqual(expect.stringContaining('#'));
+        expect(res.body[0].variety_id).toBe(1);
+    });
+
+
 });

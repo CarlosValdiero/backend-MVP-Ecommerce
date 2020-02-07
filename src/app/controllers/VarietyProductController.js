@@ -7,10 +7,10 @@ module.exports ={
 
         var variety = await VarietyProduct.findAll({
             include:[{
-                attributes: ['name','description'],
+                attributes: ['id','name','description'],
                 model:Product                
             },{
-                attributes: ['name','cod'],
+                attributes: ['id','name','cod'],
                 model:Color
             }],
             where:{
@@ -31,7 +31,7 @@ module.exports ={
                 attributes: ['id','size','quantity'],
                 model:SizeQuantity,
             },{
-                attributes: ['name','cod'],
+                attributes: ['id','name','cod'],
                 model:Color
             }]
         });

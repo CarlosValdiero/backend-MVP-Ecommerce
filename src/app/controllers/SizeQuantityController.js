@@ -6,10 +6,7 @@ module.exports ={
         const {variety_product_id} = req.params;
 
         var sizes = await SizeQuantity.findAll({
-            include:[{
-                model:VarietyProduct
-            }],
-            
+            attributes:['id','size','quantity'],     
             where: {
                 variety_product_id
             }

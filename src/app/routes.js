@@ -11,6 +11,7 @@ const SizeQuantityController = require('./controllers/SizeQuantityController');
 const AllVarietyController = require('./controllers/AllVarietyController');
 const TypeController = require('./controllers/TypeController');
 const ColorController = require('./controllers/ColorController');
+const ColorsProductController = require('./controllers/ColorsProductController');
 
 routes.post('/type', TypeController.store);
 routes.get('/types', TypeController.index);
@@ -24,6 +25,8 @@ routes.post('/product', ProductController.store);
 routes.get('/products', ProductController.index);
 routes.get('/product/:product_id', ProductController.show);
 routes.put('/product/:product_id', ProductController.update);
+
+routes.get('/product/colors/:product_id', ColorsProductController.index);
 
 routes.post('/product/:product_id/variety', upload.single('photo'),VarietyProductController.store);
 routes.get('/product/:product_id/varieties', VarietyProductController.index);
