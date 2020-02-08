@@ -23,15 +23,15 @@ The motivation to develop this project is to improve my development with NodeJS 
 
 ### Task List
 
--[x] Configure Sequelize, Jest and Axios.
--[x] create the necessary tables for the products.
--[x] create the models and controllers of the product and other necessary tables.
--[x] create the routes for the controllers.
--[ ] Create the necessary tables for orders, inventory control and cash control.
--[ ] create models and controllers.
--[ ] create the routes for the new controllers.
--[ ] implement APIs for calculating shipping and payment
--[ ] create User registration and authentication system
+- [x] Configure Sequelize, Jest and Axios.
+- [x] create the necessary tables for the products.
+- [x] create the models and controllers of the product and other necessary tables.
+- [x] create the routes for the controllers.
+- [ ] Create the necessary tables for orders, inventory control and cash control.
+- [ ] create models and controllers.
+- [ ] create the routes for the new controllers.
+- [ ] implement APIs for calculating shipping and payment
+- [ ] create User registration and authentication system
 
 ### Installation
 
