@@ -1,12 +1,11 @@
-module.exports =(sequelize, DataType)=>{
+module.exports = (sequelize, DataType) => {
+	const Type = sequelize.define('Type', {
+		name: DataType.STRING
+	});
 
-    const Type = sequelize.define("Type",{
-        name: DataType.STRING,
-    });
+	Type.associate = models => {
+		Type.hasMany(models.Product);
+	};
 
-    Type.associate = models => {
-        Type.hasMany(models.Product);
-    };
-
-    return Type;
+	return Type;
 };

@@ -1,53 +1,55 @@
-const {Product,VarietyProduct} = require('../models');
+const { Product, VarietyProduct } = require('../models');
 
-module.exports ={
-    
+module.exports = {
+	async index(req, res) {
+		const products = await Product.findAll();
 
-    async index(req,res){
-        const products = await Product.findAll();
+		return res.json(products);
+	},
 
-        return res.json(products)
-    },
+	async show(req, res) {
+		const { product_id } = req.params;
+		const product = await Product.findByPk(product_id, {
+			include: [
+				{
+					model: VarietyProduct
+				}
+			]
+		});
 
-    async show(req,res){
-        const {product_id} = req.params;
-        const product = await Product.findByPk(product_id,{
-            include:[{
-                model:VarietyProduct,
-            }]
-        });
+		return res.json(product);
+	},
 
-        return  res.json(product);
-    },
+	async store(req, res) {
+		const { name, description, type_id } = req.body;
+		const product = await Product.create({
+			name,
+			description,
+			type_id
+		});
 
-    async store(req,res){
-        const {name,description,type_id} = req.body;
-        const product = await Product.create({
-            name,
-            description,
-            type_id
-        });
+		return res.json(product);
+	},
 
-        return res.json(product);
-    },
+	async update(req, res) {
+		const { product_id } = req.params;
+		const { name, description, type_id } = req.body;
 
-    async update(req,res){
-        const {product_id} = req.params;
-        const {name,description,type_id} = req.body;
+		await Product.update(
+			{
+				name,
+				description,
+				type_id
+			},
+			{
+				where: {
+					id: product_id
+				}
+			}
+		);
 
-        await Product.update({
-            name,
-            description,
-            type_id
-        },{
-            where:{
-                id:product_id
-            }
-        });
+		const product = await Product.findByPk(product_id);
 
-        const product = await Product.findByPk(product_id);
-
-        return res.json(product);
-    }
-
+		return res.json(product);
+	}
 };

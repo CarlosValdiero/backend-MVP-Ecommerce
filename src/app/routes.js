@@ -28,16 +28,25 @@ routes.put('/product/:product_id', ProductController.update);
 
 routes.get('/product/colors/:product_id', ColorsProductController.index);
 
-routes.post('/product/:product_id/variety', upload.single('photo'),VarietyProductController.store);
+routes.post(
+	'/product/:product_id/variety',
+	upload.single('photo'),
+	VarietyProductController.store
+);
 routes.get('/product/:product_id/varieties', VarietyProductController.index);
 routes.get('/product/variety/:variety_id', VarietyProductController.show);
 routes.put('/product/variety/:variety_id', VarietyProductController.update);
 
 routes.get('/products/varieties', AllVarietyController.index);
 
-routes.post('/product/variety/:variety_product_id/size', SizeQuantityController.store);
-routes.get('/product/variety/:variety_product_id/sizes', SizeQuantityController.index);
+routes.post(
+	'/product/variety/:variety_product_id/size',
+	SizeQuantityController.store
+);
+routes.get(
+	'/product/variety/:variety_product_id/sizes',
+	SizeQuantityController.index
+);
 routes.put('/product/variety/size/:size_id', SizeQuantityController.update);
-
 
 module.exports = routes;
